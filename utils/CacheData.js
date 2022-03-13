@@ -1,4 +1,5 @@
 class CacheData {
+    static maxItems = 5;
     constructor() {
         this.CacheMap = {}
     }
@@ -9,14 +10,16 @@ class CacheData {
     }
     // set value for key
     set(key, value){
-        if(this.CacheMap.length < this.CacheMap["maxItems"]){
+        if(Object.keys(this.CacheMap).length < CacheData.maxItems){
             this.CacheMap[key] = value;
         }else{
-            return
+            return 'error';
         }
     }
     //for testing purposes, returns all the cache elements as an object
     toObject(){
+        console.log("this.CacheMap.length");
+        console.log(Object.keys(this.CacheMap).length);
         return this.CacheMap
     }
 }
