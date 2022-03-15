@@ -1,19 +1,22 @@
 class CacheData {
-    static maxItems = 3;
+    maxItems;
     constructor() {
         this.CacheMap = {}
+        CacheData.maxItems = 3;
     }
 
     //key is string. returns either whatever value was set for this key, or undefined if none was set.
     get(key){
+        let response;
         if(this.CacheMap[key]){
             let temp = this.CacheMap[key];
             delete this.CacheMap[key]
             this.CacheMap[key] = temp;
+            response = this.CacheMap[key];
         }else{
-            return 'error';
+            response =  'undefined';
         }
-        return this.CacheMap[key];
+        return response
     }
     // set value for key
     set(key, value){
@@ -27,8 +30,6 @@ class CacheData {
     }
     //for testing purposes, returns all the cache elements as an object
     toObject(){
-        console.log("this.CacheMap.length");
-        console.log(Object.keys(this.CacheMap).length);
         return this.CacheMap
     }
 }

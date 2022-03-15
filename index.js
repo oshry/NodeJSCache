@@ -10,4 +10,5 @@ cacheFactory.set('blat1', 'yeahh');
 cacheFactory.get('blat0');
 cacheFactory.set('blat2', 'yeahh');
 cacheFactory.set('blat3', 'yeahh');
+// console.log(cacheFactory.get('blat7'));
 console.log(cacheFactory.toObject());
