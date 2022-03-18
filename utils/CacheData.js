@@ -1,8 +1,7 @@
 class CacheData {
-    maxItems;
     constructor() {
         this.CacheMap = {}
-        CacheData.maxItems = 3;
+        this.maxItems = 3;
     }
 
     //key is string. returns either whatever value was set for this key, or undefined if none was set.
@@ -20,7 +19,7 @@ class CacheData {
     }
     // set value for key
     set(key, value){
-        if(Object.keys(this.CacheMap).length < CacheData.maxItems){
+        if(Object.keys(this.CacheMap).length < this.maxItems){
             this.CacheMap[key] = value;
         }else{
             let keys = Reflect.ownKeys(this.CacheMap);
